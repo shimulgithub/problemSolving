@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+            Console.WriteLine(closestFibonacci(13));
+            
+        }
+
+        public static int closestFibonacci(int n)
+        {
+            int index = int.MaxValue;
+            int[] a = new int[500];
+            a[0] = 0;
+            a[1] = 1;
+            int result = 0;
+            for (int i = 2; i < index; i++)
+            {
+                a[i] = a[i - 1] + a[i - 2];
+                if (a[i] == n)
+                {
+                    result = a[i - 2] +a[i - 3];
+                    break;
+                }
+            }
+            return result;
+        }
+
+}

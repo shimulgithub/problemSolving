@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main (String[] args)
+    {
+
+
+        System.out.println(areAnagrams(new char[] { 's', 'i', 't' }, new char[] { 'i', 't', 's' }));
+        System.out.println(areAnagrams(new char[] { 's', 'i', 't' }, new char[] { 'i', 'd', 's' }));
+        System.out.println(areAnagrams(new char[] { 'b', 'i', 'g' }, new char[] { 'b', 'i', 't' }));
+        System.out.println(areAnagrams(new char[] { 'b', 'o', 'g' }, new char[] { 'b', 'o', 'o' }));
+        System.out.println(areAnagrams(new char[] { }, new char[] { }));
+        System.out.println(areAnagrams(new char[] { 'b', 'i', 'g' }, new char[] { 'b', 'i', 'g' }));
+
+
+    }
+    public static int areAnagrams(char[] a1, char[] a2)
+    {
+        if (a1.length < 1 && a2.length < 1) return 1;
+        int arrResult1 = ArrayElement(a1, a2);
+        int arrResult2 = ArrayElement(a2, a1);
+        if (arrResult1 == 1 && arrResult2 == 1) return 1;
+        else return 0;
+    }
+
+    public static int ArrayElement(char[] arr1, char[] arr2)
+    {
+        for (int i = 0; i < arr1.length; i++)
+        {
+            int c = 0;
+            for (int j = 0; j < arr2.length; j++)
+            {
+                if (arr1[i] == arr2[j])
+                {
+                    c = 1;
+                    break;
+                }
+
+            }
+            if (c == 0) return 0;
+        }
+        return 1;
+    }
+}

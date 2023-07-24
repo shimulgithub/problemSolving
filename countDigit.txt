@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          
+            
+            Console.WriteLine(countDigit(33331, 3));
+
+        }
+
+      public static  int countDigit(int n, int digit)
+      {
+          int count =0;
+          while(n!=0)
+          {
+              int r=n%10;
+              if(r==digit)
+              {
+                  count++;
+              }
+              n=n/10;
+          }
+
+          return count ;
+      }
+
+    }

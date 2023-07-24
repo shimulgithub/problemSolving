@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        int[] numbersIntAry=  clusterCompression(new int[] { 0, 0, 0, 2, 0, 2, 0, 2, 0,0 });
+            Console.WriteLine(String.Join("; ", numbersIntAry));
+    }
+
+        public static int[] clusterCompression(int[] a)
+        {
+            
+            List<int> list = new List<int>();
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (i + 1 < a.Length)
+                {
+                    if (a[i] != a[i + 1])
+                    {
+                        list.Add(a[i]);
+
+                    }
+                }
+                else
+                {
+                    list.Add(a[i]);
+
+                }
+            }
+             int [] resArr=   list.ToArray();
+            return resArr;
+
+
+        }
+  }

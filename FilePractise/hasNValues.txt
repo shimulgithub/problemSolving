@@ -1,0 +1,17 @@
+public static int hasNValues(int []a,int n)
+{ 
+  HashSet<int> hashSet=new HashSet<int>();
+  for(int=0; i<a.Length; i++)
+  {
+   hashSet.Add(a[i]);
+
+  }
+  if(hashSet.Count==n)
+  {
+  return 1;
+  }
+  else 
+  {
+    return 0;
+  }
+}

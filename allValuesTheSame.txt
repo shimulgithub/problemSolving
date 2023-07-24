@@ -1,0 +1,16 @@
+        public static int allValuesTheSame(int[] a)
+        {
+
+            if (a.Length == 1) return 1;
+            if (a.Length < 1) return 0;
+
+            HashSet<int> hashSet = new HashSet<int>();
+           
+            for(int i=0; i<a.Length; i++)
+            {
+                hashSet.Add(a[i]);
+            }
+            if (hashSet.Count == 1) return 1;
+
+            return 0;
+        }

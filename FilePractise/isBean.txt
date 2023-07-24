@@ -1,0 +1,28 @@
+public static bool checkValue(int []a,int n)
+{
+    for (int =0;i<a.Length; i++)
+    {
+          if(a[i]==n)
+          {
+            return true;
+          }
+    }
+    retrun false;
+}
+
+prublic static int isBean(int [] a)
+{
+      bool plusOne=false;
+      bool minusOne=false;
+     
+    for(int i=0; i<a.Length;i++)
+    {
+      PlusOne=checkValue(a,a[i]+1);
+      MinusOne=checkValue(a,a[i]-1);
+      if(plusOne==false && minusOne==false)
+      {
+         return 0;
+      }
+    }
+  return 1;
+}

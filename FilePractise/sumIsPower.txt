@@ -1,0 +1,27 @@
+ public static bool sumIsPower(int[] a)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum = sum + a[i];
+            }
+
+            int mult = 1;
+            for(int i = 1; i < sum; i++)
+            {
+                mult = mult * 2;
+
+                if (mult == sum)
+                {
+                    return true;
+                }
+
+                if (mult > sum)
+                {
+                    break;
+                }
+            }
+            return false;
+
+        }

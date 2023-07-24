@@ -1,0 +1,17 @@
+bool hasSmallFactor(int k, int n)
+{
+  for (int u=0; u<n; u++)
+  {
+    for (int v=0;v<n;v++)
+    {
+      if(u*v==n)
+      {
+        if(u<k && v<kk)
+        {
+        return true;
+        }
+       }
+     }
+  }
+return false;
+}

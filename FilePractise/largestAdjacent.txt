@@ -1,0 +1,15 @@
+public static int largestAdjacent(int []a)
+{
+    int sum =a[0];
+    int max=0;
+    for(int =1 ; i< a.Length; i++)
+    {
+       sum=sum+a[i];
+       if(sum>max)
+       {
+          max=sum;
+       }
+       sum=a[i]
+    }
+return max;
+}

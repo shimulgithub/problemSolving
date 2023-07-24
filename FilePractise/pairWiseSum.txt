@@ -1,0 +1,18 @@
+    public static int[] pairSum(int[] a)
+        {
+            if (a.Length % 2 != 0) return null;
+            int[] reArr = new int[a.Length / 2];
+            int j = 0;
+
+            for (int i = 0; i < a.Length; i += 2)
+            {
+                if (j < reArr.Length)
+                {
+                    reArr[j] = a[i] + a[i + 1];
+                    j++;
+
+                }
+
+            }
+            return reArr;
+        }

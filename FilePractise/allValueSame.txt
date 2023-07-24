@@ -1,0 +1,16 @@
+ public static int allValueSame(int [] a)
+{
+   
+   if (a.Length == 1) return 1;
+   if (a.Length <1) return 0;
+   int sum = a[0];
+   for(int i=0; i<a.Length; i++)
+   {
+      if(sum!=a[i])
+      {
+        return 0;
+      }
+      sum=a[i];
+   }
+  return 1;
+}

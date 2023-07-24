@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(computeDepth(42));
+            Console.WriteLine(computeDepth(7));
+            Console.WriteLine(computeDepth(13));
+            Console.WriteLine(computeDepth(25));
+
+        }
+
+        public static int computeDepth(int n)
+        {
+            HashSet<int> hashTable = new HashSet<int>();
+            int multiply = 1;
+            int value = 0;
+            int digit = 0;
+            while(hashTable.Count<10)
+            {
+                value = n * multiply;
+                if (value < 10)
+                {
+                    hashTable.Add(value);
+                    if (hashTable.Count < 10)
+                    {
+                        multiply++;
+                    }
+                }
+                else
+                {
+                    while(value!=0)
+                    {
+                        digit = value % 10;
+                        value = value / 10;
+                        hashTable.Add(digit);
+
+                    }
+                    if (hashTable.Count < 10)
+                    {
+                        multiply++;
+                    }
+                }
+
+            }
+            
+            return multiply;
+        }
+}

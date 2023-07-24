@@ -1,0 +1,63 @@
+using System;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+       
+            Console.WriteLine(convertToBase10(new int[] { 1, 0, 1, 1 }, 2));
+            Console.WriteLine(convertToBase10(new int[] { 1, 1, 2 }, 3));
+            Console.WriteLine(convertToBase10(new int[] { 3, 2, 5 }, 8));
+            Console.WriteLine(convertToBase10(new int[] { 3, 7, 1 }, 6));
+        }
+        public static int convertToBase10(int[] a, int baseVal)
+        {
+            int isLegal = isLegalNumber(a, baseVal);
+            if (isLegal == 0) return 0;
+
+            int sum = 0;
+            int j = 0;
+            int sumBase = 1;
+            int k = 0;
+            for (int i = a.Length-1; i>=0; i--)
+            {
+                
+               
+                    if (k == 0)
+                    {
+                        sum = a[i];
+                    }
+                    else
+                    {
+                        while (j < k)
+                        {
+                            sumBase = sumBase * baseVal;
+                            j++;
+                        }
+                        sum = sum + a[i] * sumBase;
+                        j = 0;
+                        sumBase = 1;
+                    }
+                k++;
+            }
+
+            return sum;
+        }
+        public static int isLegalNumber(int[] a, int baseNumber)
+        {
+            
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] >= baseNumber)
+                {
+                    return 0;
+                }
+            }
+
+            return 1 ;
+        }
+
+}

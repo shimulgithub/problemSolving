@@ -1,0 +1,41 @@
+ public static int factorEqual(int n, int m)
+        {
+            int factCountN = 0;
+            int factN = 1;
+            int factCountM = 0;
+            int factM = 1;
+            for (int i = 1; i < n; i++)
+            {
+                if (n % i == 0)
+                {
+                    factN = factN * i;
+                    factCountN++;
+                }
+                if (factN == n)
+                {
+                    break;
+
+                }
+            }
+            for (int i = 1; i < m; i++)
+            {
+                if (m% i == 0)
+                {
+                    factM = factM * i;
+                    factCountM++;
+                }
+                if (factM == m)
+                {
+                    break;
+
+                }
+            }
+            if (factCountN != factCountM)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
