@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+            Console.WriteLine(isIsolated(162));
+            Console.WriteLine(isIsolated(69));
+        }
+        public static int isIsolated(long n)
+        {
+            int Flag = 0;
+            int squareVal =Convert.ToInt32( n * n);
+            int qubeVal = Convert.ToInt32(n * n * n);
+            HashSet<int> sqDigitSet = new HashSet<int>();
+            HashSet<int> qbDigitSet = new HashSet<int>();
+            while (squareVal != 0)
+            {
+                int r = squareVal % 10;
+                sqDigitSet.Add(r);
+                squareVal = squareVal / 10;
+            }
+            while (qubeVal != 0)
+            {
+                int r = qubeVal % 10;
+                qbDigitSet.Add(r);
+                qubeVal = qubeVal / 10;
+            }
+            foreach(var val in sqDigitSet)
+            {
+                foreach(var val1 in qbDigitSet)
+                {
+                    if(val==val1)
+                    {
+                        Flag=1 ;
+                        break;
+                    }
+                }
+            }
+
+            return Flag;
+        }
+}

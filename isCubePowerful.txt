@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+    public static void main (String[] args)
+    {
+
+        System.out.println( isCubePowerful(153)) ;
+        System.out.println( isCubePowerful(370)) ;
+        System.out.println( isCubePowerful(371)) ;
+        System.out.println( isCubePowerful(407)) ;
+        System.out.println( isCubePowerful(87))  ;
+        System.out.println( isCubePowerful(0))   ;
+        System.out.println( isCubePowerful(87))  ;
+
+    }
+
+    public static int isCubePowerful (int n)
+    {
+        if(n<=0) return 0;
+        int sum=0;
+        int temp=n;
+        while (n!=0)
+        {
+            int  r =n%10;
+
+            sum=sum+r*r*r;
+            n=n/10;
+        }
+        if (sum==temp) return 1;
+          else return 0;
+    }
+
+}

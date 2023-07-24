@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+           Console.WriteLine(isTwinPrime(5));
+            Console.WriteLine(isTwinPrime(7));
+            Console.WriteLine(isTwinPrime(53));
+            Console.WriteLine(isTwinPrime(9));
+        }
+        public static int isTwinPrime(int n)
+        {
+            int NumberPrime = isPrime(n);
+            if (NumberPrime>0)
+            {
+                int NumberPrimePlusTwo = isPrime(n+2);
+                int NumberPrimeMinusTwo = isPrime(n-2);
+
+                if (NumberPrimePlusTwo > 0 || NumberPrimeMinusTwo > 0)
+                {
+                    return 1;
+                }
+
+            }
+            else
+            {
+                return 0;
+            }
+
+            return 0;
+        }
+        public static int isPrime(int n)
+        {
+            for (int i = 2; i < n; i++)
+            {
+                if (n % i == 0)
+                {
+                    return 0;
+                }
+
+            }
+            return 1;
+        }
+
+    }

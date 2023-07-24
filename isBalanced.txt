@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+       
+     Console.WriteLine(isBalanced(new int[] { 2, 3, 6, 7 }));
+            Console.WriteLine(isBalanced(new int[] { 3 }));
+
+        }
+
+        public static  int isBalanced(int[] a)
+        {
+            bool evenCheck = false;
+            bool oddCheck = false;
+            if (a.Length == 1)
+            {
+                if (a[0] % 2 == 0) return 1;
+                else return 0;
+            }
+            for(int i=0; i<a.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    if (a[i] % 2 == 0)
+                    {
+                        evenCheck = true;
+                    }
+                }
+                else
+                {
+                    if (a[i] % 2 != 0)
+                    {
+                        oddCheck = true;
+                    }
+
+
+                }
+            }
+            if (evenCheck == true && oddCheck == true) return 1;
+            else return 0;
+
+        }
+
+    }

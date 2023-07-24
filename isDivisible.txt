@@ -1,0 +1,29 @@
+using System;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+       
+            Console.WriteLine(isDivisible(new int[] { 3, 3, 6, 36 } , 3));
+            Console.WriteLine(isDivisible(new int[] { 4 }, 2));
+            Console.WriteLine(isDivisible(new int[] { 3, 4, 3, 6, 36 }, 3));
+            Console.WriteLine(isDivisible(new int[] { 6, 12, 24, 36 }, 12));
+            Console.WriteLine(isDivisible(new int[] { }, 1));
+        }
+        public static int isDivisible(int[] a, int divisor)
+        {
+            for(int i=0; i<a.Length; i++)
+            {
+                if(a[i]% divisor != 0)
+                {
+                    return 0;
+                }
+            }
+            return 1;
+
+        }
+}

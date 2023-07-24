@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+            Console.WriteLine(fullnessQuotient(94));
+            Console.WriteLine(fullnessQuotient(1));
+            Console.WriteLine(fullnessQuotient(9));
+            Console.WriteLine(fullnessQuotient(360));
+            Console.WriteLine(fullnessQuotient(-4));
+        }
+
+       public static int fullnessQuotient(int n)
+        {
+            if (n < 1)
+                return -1;
+
+            int count = 0;
+
+            for (int baseNumber = 2; baseNumber <= 9; baseNumber++)
+            {
+                bool zeroFlag = false;
+                int number = n;
+                while (number > 0)
+                {
+                    if (number % baseNumber == 0)
+                    {
+                        zeroFlag = true;
+                        break;
+                    }
+                    number /= baseNumber;
+                }
+
+                if (!zeroFlag)
+                    count++;
+            }
+            return count;
+        }
+  }

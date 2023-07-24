@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+         Console.WriteLine(isVesuvian(50,25,25));
+
+
+        }
+
+        private static int isVesuvian(int n, int p1, int p2)
+        {
+           
+            int square1 = (int)Math.Sqrt(p1);
+            int square2 = (int)Math.Sqrt(p2);
+            if (((square1 * square1) + (square2 * square2)) == n)
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+    }

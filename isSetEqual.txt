@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          
+            
+          
+            Console.WriteLine(isSetEqual(new int[] { 1,9,12 },new int[] {12,1,9}));
+            Console.WriteLine(isSetEqual(new int[] { 1,7,8 },new int[] { 1,7,6 }));
+
+    }
+
+    public static int isSetEqual(int[ ] a, int[ ] b) 
+    {
+        Array.Sort(a);
+        Array.Sort(b);
+
+        if(a.Length!=b.Length) 
+        {
+            return 0;
+        }
+
+        for(int i=0; i<a.Length; i++)
+        {
+            if(a[i]!=b[i])
+            {
+                return 0;
+            }
+        }
+
+        return  1;
+
+    }
+}

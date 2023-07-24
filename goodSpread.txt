@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          
+  
+            Console.WriteLine(goodSpread(new int[] { 2, 1, 2, 5, 2, 1, 5, 9 }));
+            Console.WriteLine(goodSpread(new int[] { 2, 1, 2, 5, 2, 1, 5, 9 ,2}));
+
+        }
+
+        public static int goodSpread(int[] a)
+        {
+            int[] temp = sortArray(a);
+            int count = 1;
+            int i = 0;
+            while (i < a.Length)
+            {
+                if (i + 1 < a.Length)
+                {
+                    while (temp[i] == temp[i + 1])
+                    {
+                        count++;
+                        i++;
+                        if (i == temp.Length - 1)
+                        {
+                            break;
+                        }
+
+
+                    }
+                    if (count > 3)
+                    {
+                        return 0;
+
+                    }
+                    else
+                    {
+                        i++;
+                        count = 1;
+                    }
+                }
+                if (i == temp.Length - 1)
+                {
+                    break;
+                }
+            }
+            
+            return 1;
+        }
+
+
+ public static int[] sortArray(int[] a)
+ {
+
+            int num;
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = i + 1; j < a.Length; j++)
+                {
+                    if (a[i] > a[j])
+                    {
+                        num = a[i];
+                        a[i] = a[j];
+                        a[j] = num;
+                    }
+                }
+            }
+
+            return a;
+}
+   
+
+}

@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          
+            Console.WriteLine(isBean(new int[] { 1, 2, 3, 9, 6, 13 }));
+            Console.WriteLine(isBean(new int[] { 3, 6, 9, 5, 7, 13, 6, 17 }));
+            Console.WriteLine(isBean(new int[] { 1, 2, 3, 9, 6, 14 }));
+            Console.WriteLine(isBean(new int[] { 3, 6, 9, 5, 7, 13, 6, 16 }));
+
+        }
+
+      public static int isBean (int[ ] a)
+      {
+
+          bool firstCondition=false;
+          bool secontCondition=false;
+          for (int i=0; i<a.Length;i++)
+          { 
+              if(a[i]==9)
+              {
+                  int chkVal=secondvalue(13,a);
+                  if(chkVal>0)
+                  {
+                      firstCondition =true;
+                  }
+              }
+               
+               if(a[i]==7)
+               {
+                   int chkVal1=secondvalue(16,a);
+                   if(chkVal1>0)
+                   {
+                     secontCondition =true;
+
+                   }
+               }
+
+          }
+          if(firstCondition==true && secontCondition==false )
+          {
+              return 1;
+          }
+          else{
+          return 0;
+          }
+
+      }
+      public  static int secondvalue(int n, int [] a)
+      {
+          for (int i=0; i<a.Length; i++)
+          {
+              if(a[i]==n)
+              {
+                  return 1;
+              }
+          }
+          return 0;
+      }
+
+
+    }

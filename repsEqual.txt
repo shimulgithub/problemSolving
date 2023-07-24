@@ -1,0 +1,35 @@
+using System;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          Console.WriteLine(repsEqual(new int[] { 3, 2, 0, 5, 3 },32053));
+            Console.WriteLine(repsEqual(new int[] { 3, 2, 0, 5 }, 32053));
+            Console.WriteLine(repsEqual(new int[] { 3, 2, 0, 5,4 }, 32053));
+            Console.WriteLine(repsEqual(new int[] { 2, 3, 0, 5, 3 }, 32053));
+            Console.WriteLine(repsEqual(new int[] { 9, 3, 1, 1, 2 }, 32053));
+            Console.WriteLine(repsEqual(new int[] { 0, 3, 2, 0, 5, 3 }, 32053));
+        }
+        public static int repsEqual(int[] a, int n)
+        {
+            string comArr = "";
+            for(int i=0;i<a.Length;i++)
+            {
+                comArr = comArr + a[i];
+            }
+            if (n == Convert.ToInt32(comArr))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
+    }

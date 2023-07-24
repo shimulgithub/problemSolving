@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+             Console.WriteLine(isFactorialPrime(2));
+            Console.WriteLine(isFactorialPrime(3));
+            Console.WriteLine(isFactorialPrime(7));
+            Console.WriteLine(isFactorialPrime(8));
+            Console.WriteLine(isFactorialPrime(11));
+            Console.WriteLine(isFactorialPrime(721));
+        }
+
+        public static int isFactorialPrime(int n)
+        {
+
+            // If n is not prime then return false
+            if (isPrime(n)==0)
+                return 0;
+
+            long fact = 1;
+            int i = 1;
+            while (fact <= n + 1)
+            {
+
+                // Calculate factorial
+                fact = fact * i;
+
+                // If n is a factorial prime
+                if (n + 1 == fact || n - 1 == fact)
+                    return 1;
+
+                i++;
+            }
+
+            // n is not a factorial prime
+            return 0;
+        }
+        public static int isPrime(int n)
+        {
+            for (int i = 2; i < n; i++)
+            {
+                if (n % i == 0)
+                {
+                    return 0;
+                }
+
+            }
+            return 1;
+        }
+
+}

@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println(isConsectiveFactored(24));
+        System.out.println(isConsectiveFactored(105));
+        System.out.println(isConsectiveFactored(90));
+        System.out.println(isConsectiveFactored(23));
+        System.out.println(isConsectiveFactored(15));
+        System.out.println(isConsectiveFactored(2));
+        System.out.println(isConsectiveFactored(0));
+        System.out.println(isConsectiveFactored(-12));
+    }
+
+    public static int isConsectiveFactored(int n)
+    {
+        int temp = n;
+        int PreFact = 0;
+        int j = 0;
+        if (n <= 0) return 0;
+        for (int i = 2; i < n; i++)
+        {
+            if (temp % i == 0)
+            {
+                j++;
+                if(i==PreFact+1)
+                {
+                    return 1;
+                }
+                PreFact = i;
+            }
+
+            if (j >= 2) break;
+        }
+
+        return 0;
+
+    }
+}

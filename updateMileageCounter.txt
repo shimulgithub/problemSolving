@@ -1,0 +1,33 @@
+   public static  void updateMileagecounter(int[] a, int miles)
+        {
+            string [] resArr = new string [a.Length]; 
+           string digit = "";
+           int  cout = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                digit = digit + a[i].ToString();
+                cout++;
+            }
+           string  revNum = reverseNumber(Convert.ToInt32(digit), cout,miles);
+
+            for (int j = resArr.Length-1; j>=0; j--)
+            {
+                resArr[j] = revNum[j].ToString();
+            }
+
+        }
+        public static string   reverseNumber(int n,int numOfdigit,int miles)
+        {
+           
+            int sum = 0;
+            while (n != 0)
+            {
+                int r = n % 10;
+                sum = sum * 10 + r;
+                n = n / 10;
+                
+            }
+            sum = sum + miles;
+            var newString = sum.ToString().PadLeft(numOfdigit, '0');
+            return newString;
+        }

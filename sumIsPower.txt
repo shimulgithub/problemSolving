@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+  
+          Console.WriteLine(sumIsPower(new int[] { 8,8,8,8 }));
+            Console.WriteLine(sumIsPower(new int[] { 8,8,8 }));
+
+    }
+
+    public static bool sumIsPower(int[] arr)
+    {
+        int sum=0;
+        int fact=1;
+
+        for(int i =0; i<arr.Length; i++)
+        {
+            sum =sum+arr[i];
+        }
+        while(fact!=sum)
+        {
+            fact=fact*2;
+            if(fact==sum)
+             {
+                 return true;
+             }
+             if(fact>sum)
+             {
+                 return false;
+             }
+        }
+     return false;
+
+    }
+     
+       
+}
+Write to Zahid Hasan

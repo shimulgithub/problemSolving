@@ -1,0 +1,30 @@
+
+
+public class Main {
+
+    public static void main(String[] args){
+        int testCase1=IsSequencedArray(new int [] {1,2,3,4,5},1,5);
+        int testCase2=IsSequencedArray(new int [] {1,3,2,4,5},1,5);
+        int testCase3=IsSequencedArray(new int [] {-5,-5,-4,-4,-4,-3,-3,-2,-2,-2},-5,-2);
+        int testCase4=IsSequencedArray(new int [] {0,1,2,3,4,5},1,5);
+        int testCase5=IsSequencedArray(new int [] {1,2,3,4},1,5);
+        int testCase6=IsSequencedArray(new int [] {1,2,5},1,5);
+        System.out.println("testCase1 "+testCase1);
+        System.out.println("testCase2 "+testCase2);
+        System.out.println("testCase3 "+testCase3);
+        System.out.println("testCase4 "+testCase4);
+        System.out.println("testCase5 "+testCase5);
+        System.out.println("testCase6 "+testCase6);
+    }
+    public static int IsSequencedArray(int[] arr,int m,int n)
+    {
+        if(arr[0]!=m || arr[arr.length-1]!=n) return 0;
+
+        for(int i=0 ;i<arr.length-1;i++)
+        {
+            if(arr[i+1]-arr[i] !=0 && arr[i+1]-arr[i]!=1) return 0;
+        }
+        return 1;
+
+    }
+}

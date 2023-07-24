@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+             Console.WriteLine(isSystematicallyIncreasing(new int[] { 1 }));
+            Console.WriteLine(isSystematicallyIncreasing(new int[] { 1, 1, 2 } ));
+            Console.WriteLine(isSystematicallyIncreasing(new int[] { 1, 1, 2, 1, 2, 3 }));
+            Console.WriteLine(isSystematicallyIncreasing(new int[] { 1, 2, 1, 2, 3 }));
+            
+
+
+        }
+
+        public static int isSystematicallyIncreasing(int[] a)
+        {
+            int end = 1;
+            int index = 0;
+
+            while (end < a.Length)
+            {
+
+                for (int i = index; i <= end; i++)
+                {
+                    if (a[index] != i) return 0;
+
+                    index++;
+                    if (index == a.Length) break;
+                }
+
+                end++;
+            }
+            return 1;
+        }
+
+}

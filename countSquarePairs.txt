@@ -1,0 +1,44 @@
+using System;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+    Console.WriteLine(countSquarePairs(new int[] { 9, 0, 2, -5, 7 }));
+     }
+        public static bool isPerfectSquare(int number)
+        {
+            for (int i = 1; i < number; i++)
+            {
+                if (i * i == number) return true; 
+            }
+            return false;
+        }
+        public static int countSquarePairs(int[] a)
+        {
+            bool result = false;
+            int resultCount = 0;
+            for (int x = 0; x < a.Length; x++)
+            {
+                for (int y = 0; y < a.Length; y++)
+                {
+                    if (a[x] <a[y] && a[x]>0 && a[y]>0)
+                    {
+                      result=  isPerfectSquare(a[x] + a[y]);
+                    }
+                    
+                }
+                if (result)
+                {
+                    resultCount++;
+                    result = false;
+                }
+
+
+            }
+            return resultCount;
+        }
+}

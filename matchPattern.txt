@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+         Console.WriteLine(matchPattern(new int[] { 1, 1, 2, 2, 2, 2 }, new int[] { 1,2 }));
+            Console.WriteLine(matchPattern(new int[] { 1, 2,3 }, new int[] { 1, 2 }));
+
+
+        }
+
+        public static int matchPattern(int[] a, int[] pattern)
+        {
+            HashSet<int> mHashSet = new HashSet<int>();
+            HashSet<int> pHashSet = new HashSet<int>();
+            for (int i = 0; i < a.Length; i++)
+            {
+                mHashSet.Add(a[i]);
+            }
+            pHashSet = pattern.ToHashSet();
+           if(mHashSet.Count == pHashSet.Count && mHashSet.IsSubsetOf(pHashSet))
+            { 
+         
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+       
+
+}

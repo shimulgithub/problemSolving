@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+         Console.WriteLine(isTrivalent(new int[] { -1, 0, 1, 0, 0, 0 }));
+         Console.WriteLine(isTrivalent(new int[] { }));
+        }
+        public static int isTrivalent(int[] a)
+        {
+            if (a.Length == 0) return 0;
+            HashSet<int> trihash = new HashSet<int>();
+            for(int i=0;i<a.Length; i++)
+            {
+                trihash.Add(a[i]);
+
+            }
+            if (trihash.Count > 2) return 1;
+            else  return 0;
+        }
+}

@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+       Console.WriteLine(isCubePerfect(new int[] { 1, 1, 1, 1 }));
+            Console.WriteLine(isCubePerfect(new int[] { 64 }));
+            Console.WriteLine(isCubePerfect(new int[] { 63 }));
+            Console.WriteLine(isCubePerfect(new int[] { -1, 0, 1 }));
+            Console.WriteLine(isCubePerfect(new int[] { 3, 7, 21, 36 }));
+            
+        }
+
+        public static int isCubePerfect(int[] a)
+        {
+            bool isCube = false;
+            int sum = 0;
+            if (a.Length == 0) return 1;
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a[i]; j++)
+                {
+                    sum = j * j * j;
+
+                    if (sum == a[i])
+                    {
+                        isCube = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (sum > a[i]) return 0;
+                    }
+                }
+                if (!isCube)
+                {
+                    return 1;
+                }
+
+            }
+            return 1;
+        }
+
+
+    }

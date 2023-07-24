@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+       
+          Console.WriteLine(isEvens(2426));
+          Console.WriteLine(isEvens(3224));
+        }
+
+        public static int isEvens(int n)
+        {
+            while (n != 0)
+            {
+                int r = n % 10;
+                if (r % 2 != 0)
+                {
+                    return 0;
+                }
+                n = n / 10;
+            }
+
+            return 1;
+        }
+
+
+    }

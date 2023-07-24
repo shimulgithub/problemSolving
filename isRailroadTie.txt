@@ -1,0 +1,120 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+           Console.WriteLine(isRailroadTie(new int[] { 1, 2, 0, 3, -18, 0, 2, 2 }));
+           Console.WriteLine(isRailroadTie(new int[] { 3, 3, 0, 3, 3, 0, 3, 3, 0, 3, 3 }));
+           Console.WriteLine(isRailroadTie(new int[] { 0, 0, 0 }));
+           Console.WriteLine(isRailroadTie(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }));
+           Console.WriteLine(isRailroadTie(new int[] { 1, 3, 0, 3, 5, 0 }));
+            
+        }
+
+        public static int isRailroadTie(int[] a)
+        {
+            int c = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] == 0)
+                {
+                    c++;
+                    break;
+                }
+
+            }
+            if (c == 0) return 0;
+
+            for (int i = 0; i < a.Length; i++)
+            { 
+                if(a[i]==0)
+                {
+                    int  zero = zeroCheck(i, a);
+                    if(zero==0)
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    int nonZero = nonZeroCheck(i, a);
+                    if (nonZero == 0)
+                    {
+                       return 0;
+                    }
+                }
+            }
+            return  1 ;
+        }
+        public static int zeroCheck(int index, int[] a)
+        {
+            int result = 0;
+           
+                if (index == 0)
+                {
+                    result= 0;
+                }
+                if (index > 0 && index+1<a.Length)
+                {
+                    if (a[index - 1] != 0 && a[index + 1] != 0)
+                    {
+                        result = 1;
+                    }
+                    
+                }
+            if (result == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+            
+          
+        }
+        public static int nonZeroCheck(int index, int[] a)
+        {
+            int result = 0;
+
+            if (index == 0)
+            {
+                if (index + 1 < a.Length)
+                {
+                    if (a[index + 1] != 0)
+                    {
+                        result = 1;
+                    }
+                }
+            }
+            if (index > 0 && index + 1 < a.Length)
+            {
+                if (a[index - 1] != 0 || a[index + 1] != 0)
+                {
+                    result = 1;
+                }
+
+            }
+            if (index == a.Length-1)
+            {
+                result = 1;
+            }
+            if (result == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+
+
+        }
+  }

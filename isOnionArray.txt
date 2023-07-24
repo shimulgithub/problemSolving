@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          Console.WriteLine(isOnionArray(new int[] { 1, 2, 19, 4, 5 }));
+        }
+        public static int isOnionArray(int[] a)
+        {
+
+            if (a.Length < 2) return 1;
+
+            int j = 0;
+            int k = a.Length-1;
+            while (j < k)
+            {
+                if (a[j] + a[k] > 10 && j + k == a.Length - 1)
+                {
+                    return 0;
+                }
+                j++;
+                k--;
+            }
+            return 1;
+        }
+
+}

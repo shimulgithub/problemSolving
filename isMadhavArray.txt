@@ -1,0 +1,66 @@
+using System;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          Console.WriteLine(isMadhavArray(new int[]  { 2, 1, 1 }));
+         Console.WriteLine(isMadhavArray(new int[] { 2, 1, 1, 4, -1, -1 }));
+        Console.WriteLine(isMadhavArray(new int[] { 6, 2, 4, 2, 2, 2, 1, 5, 0, 0 }));
+     Console.WriteLine(isMadhavArray(new int[] {18, 9, 10, 6, 6, 6}));
+     Console.WriteLine(isMadhavArray(new int[] {-6, -3, -3, 8, -5, -4}));
+ Console.WriteLine(isMadhavArray(new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 
+1, -2, -1}));
+    Console.WriteLine(isMadhavArray(new int[] { 3, 1, 2, 3, 0}));
+      
+    }
+    public static int isMadhavArray(int [] a)
+    {
+
+    bool isEq=false ;
+    bool isEx=false;
+    int  equation=0; int value=a.Length;
+    for (int n=0; n<a.Length;n++)
+    { 
+        equation=n*(n+1)/2;
+        if(value==equation)
+        {
+            isEx=true;
+            break;
+        }
+
+    }
+    if(isEx)
+    {
+        int x=1,y=3,c=0 ,  sum=0;
+        do{
+            for (int I=x,J=y;I<y;I++)
+            {
+                sum=sum+a[I];
+            }
+            if(a[0]==sum)
+            {
+                isEq=true;
+                sum=0;
+            }
+            else
+            {
+                isEq=false;
+                break;
+            }
+            c++;
+            x=y;
+            y=x+2+c;
+
+        } while (x<a.Length);
+    }
+    if (isEq)
+                return 1;
+            else
+                return 0;
+
+    }
+}

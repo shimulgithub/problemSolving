@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          
+ 
+ 
+     Console.WriteLine(factorTwoCount(48));
+    }
+
+public static int factorTwoCount(int n)
+{
+    int factorCount=0;
+
+    while (n!=0)
+    {
+        if(n%2==0)
+        {
+            factorCount++;
+          
+        }
+          n=n/2;
+    }}

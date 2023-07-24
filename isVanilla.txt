@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+            Console.WriteLine(isVanilla(new int[] { 11, 22, 13, 34, 125 }));
+            Console.WriteLine(isVanilla(new int[] { 9, 999, 99999, -9999 }));
+        }
+        public static int isVanilla(int[] a)
+        {
+            int temp = 0;
+            HashSet<int> hasVal = new HashSet<int>();
+            for (int i = 0; i < a.Length; i++)
+            {
+                temp = a[i];
+
+                while (temp!=0)
+                {
+                    int r = temp % 10;
+                    if (r < 0) r = r * -1;
+
+                    hasVal.Add(r);
+                    temp = temp / 10;
+                }
+            }
+            if (hasVal.Count > 1) return 0;
+            else return 1;
+
+        }
+}

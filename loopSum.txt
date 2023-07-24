@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(loopSum(new int[] { 1, 2, 3 }, 2));
+            Console.WriteLine(loopSum(new int[] { -1, 2, -1 },7));
+            Console.WriteLine(loopSum(new int[] { 1, 4, 5,6 }, 4));
+            Console.WriteLine(loopSum(new int[] { 3 }, 10));
+        }
+        
+        public static int loopSum(int[] a, int n)
+        {
+            int index = 0;
+            int sum = 0;
+            for (int i = 0; i <n; i++)
+            {
+                if(index < a.Length)
+                {
+                    sum = sum + a[index];
+                    index++;
+                }
+                else
+                {
+                    index = 0;
+                    sum = sum + a[index];
+                    index++;
+                }
+
+                
+            }
+            return sum;
+
+        }
+    
+
+    }

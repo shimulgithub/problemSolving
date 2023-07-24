@@ -1,0 +1,15 @@
+public static int hashNvalues (int[] a, int n)
+        {
+       
+            int len = a.Length;
+            HashSet<int> hasSet = new HashSet<int>();
+
+            for(int i=0;i<len;i++)
+            {
+                hasSet.Add(a[i]);
+            }
+            int size = hasSet.Count;
+            if (size == n)
+                return 1;
+            else return 0;
+        }

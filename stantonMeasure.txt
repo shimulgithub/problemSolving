@@ -1,0 +1,61 @@
+using System;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(stantonMeasure(new int[] { 1 }));
+            Console.WriteLine(stantonMeasure(new int[] { 0 }));
+            Console.WriteLine(stantonMeasure(new int[] { 3, 1, 1, 4 }));
+            Console.WriteLine(stantonMeasure(new int[] { 1, 3, 1, 1, 3, 3, 2, 3, 3, 3, 4 }));
+            Console.WriteLine(stantonMeasure(new int[] {}));
+
+
+        }
+
+        public static int stantonMeasure(int[] a)
+        {
+            int[] temArr = a;
+            Array.Sort(temArr);
+
+            if (a.Length == 1) return 1;
+            if (a.Length == 0) return 0;
+            int Count = 0;
+            int maxResultCout = 0;
+            int PreVal = temArr[0];
+            for (int i=0; i<temArr.Length;i++)
+            {
+                if (temArr[i] == PreVal)
+                {
+                    Count++;
+                }
+                else
+                {  if (temArr[i] - PreVal == 1)
+                    {
+                        if (Count > maxResultCout)
+                        {
+                            maxResultCout = Count;
+                        }
+                        Count = 0;
+                        PreVal = temArr[i];
+                        Count++;
+                    }
+                    else
+                    {
+                        return 0 ;
+                    }
+                    
+                }
+
+            }
+            if (Count > maxResultCout)
+            {
+                maxResultCout = Count;
+            }
+            return maxResultCout;
+        }
+
+    }

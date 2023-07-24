@@ -1,0 +1,44 @@
+public static int decodeArray(int[] a)
+        {
+            int countzero = 0;
+            int j = 0;
+            if (a[0] < 0)
+               j= 1;
+            string resdigit = "";
+            for (int i = j; i < a.Length; i++)
+            {
+                if (a[i] == 0)
+                {
+                    countzero++;
+                }
+                else
+                {
+                    if (a.Length != i + 1)
+                    {
+                        if (a[i] == a[i + 1])
+                        {
+                            resdigit = resdigit + "0";
+                        }
+                        
+
+                    }
+                    countzero = 0;
+                }
+                if (countzero > 0)
+                {
+                    if (a.Length != i + 1)
+                    {
+                        if (a[i+1] == 1)
+                        {
+                            resdigit = resdigit + countzero.ToString();
+                        }
+                    }
+                  
+                }
+
+            }
+
+            if (a[0] < 0)
+                return Convert.ToInt32(resdigit) * -1;
+            else  return Convert.ToInt32(resdigit);
+        }

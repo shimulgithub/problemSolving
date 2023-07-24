@@ -1,0 +1,57 @@
+using System;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+      Console.WriteLine(findPorcupineNumber(139));
+
+    }
+
+
+        public static int findPorcupineNumber(int n)
+        {
+            int FirstPrimeNumber = n;
+            int NextPrimeNum = n;
+            bool NextPrimeNumber = false;
+            if (isPrimeNumber(FirstPrimeNumber))
+            {
+                while (NextPrimeNumber==false)
+                {
+                    NextPrimeNum++;
+                    if (isPrimeNumber(NextPrimeNum))
+                    {
+                         NextPrimeNumber = true;
+                    }
+                    
+                }
+                
+            }
+            //Console.WriteLine(FirstPrimeNumber + "And" + NextPrimeNum);
+
+            if (FirstPrimeNumber % 10 == 9 && NextPrimeNum % 10 == 9)
+            {
+                return 1;
+            }
+            else
+            {
+
+                return 0;
+            }
+        }
+        public static bool isPrimeNumber(int n)
+        {
+            for (int i = 2; i < n; i++)
+            {
+                if (n % i == 0)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+    }

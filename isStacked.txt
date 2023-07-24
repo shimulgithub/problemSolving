@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+            Console.WriteLine(isStacked(1));
+            Console.WriteLine(isStacked(3));
+            Console.WriteLine(isStacked(6));
+            Console.WriteLine(isStacked(7));
+            Console.WriteLine(isStacked(8));
+            Console.WriteLine(isStacked(9));
+            Console.WriteLine(isStacked(10));
+            Console.WriteLine(isStacked(15));
+        }
+        public static int isStacked(int n)
+        {
+            int totalSum = 0;
+            if (n == 1) return 1;
+            for (int i = 0; i < n; i++)
+            {
+                totalSum = totalSum + i;
+
+                if (totalSum == n)
+                {
+                    return 1;
+                }
+            }
+
+            return 0;
+        }
+}

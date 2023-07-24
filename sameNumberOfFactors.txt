@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+
+        System.out.println(sameNumberOfFactors(-6, 21));
+        System.out.println(sameNumberOfFactors(6, 21));
+        System.out.println(sameNumberOfFactors(8, 12));
+        System.out.println(sameNumberOfFactors(23, 97));
+        System.out.println(sameNumberOfFactors(0, 1));
+        System.out.println(sameNumberOfFactors(0, 0));
+    }
+
+    public static int sameNumberOfFactors(int n1,int n2)
+    {
+        if (n1 < 0 || n2 < 0) return -1;
+        int n1Count = countFactor(n1);
+        int n2Count = countFactor(n2);
+        if (n1Count == n2Count)
+            return 1;
+        return 0;
+    }
+    public static int countFactor(int n)
+    {
+        int count = 0;
+        int fact = 1;
+        for(int i=1;i<=n;i++)
+        {
+            if (n % i == 0)
+            {
+                count++;
+                fact =  fact * i;
+                if (fact == n)
+                    break;
+            }
+
+        }
+        return count;
+    }
+}

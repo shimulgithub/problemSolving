@@ -1,0 +1,52 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main (String[] args)
+    {
+
+
+        System.out.println(isFactorialPrime(2));
+        System.out.println(isFactorialPrime(3));
+        System.out.println(isFactorialPrime(7));
+        System.out.println(isFactorialPrime(8));
+        System.out.println(isFactorialPrime(11));
+        System.out.println(isFactorialPrime(721));
+    }
+
+    public static int isPrime(int n)
+    {
+        for (int i = 2; i < n; i++)
+        {
+            if(n%i==0)
+            {
+                return 0;
+            }
+
+        }
+        return 1;
+    }
+    public static int isFactorialPrime(int n)
+    {
+
+        int fact = 1;
+
+        if (isPrime(n) == 1)
+        {
+            int temp = n;
+            for (int i = 1; i <= n; i++)
+            {
+                fact = fact * i;
+                if (fact + 1 == n) return 1;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+
+
+        return 0;
+    }
+
+}

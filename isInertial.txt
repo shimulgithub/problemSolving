@@ -1,0 +1,67 @@
+Console.WriteLine(isInertial(new int[] { 1 }));
+            Console.WriteLine(isInertial(new int[] { 2 }));
+            Console.WriteLine(isInertial(new int[] { 1, 2, 3, 4 }));
+            Console.WriteLine(isInertial(new int[] { 1, 1, 1, 1, 1, 1, 2 }));
+            Console.WriteLine(isInertial(new int[] { 2, 12, 12, 4, 6, 8, 11 }));
+            Console.WriteLine(isInertial(new int[] { 2, 12, 4, 6, 8, 11 }));
+            Console.WriteLine(isInertial(new int[] { -2, -4, -6, -8, -11 }));
+            Console.WriteLine(isInertial(new int[] { 2, 3, 5, 7 }));
+            Console.WriteLine(isInertial(new int[] { 2, 4, 6, 8, 10 }));
+
+
+        }
+
+        public static int isInertial(int[] a)
+        {
+            bool maxEven = false;
+            bool OddComEven = false;
+            bool oddval = OddValueCheck(a);
+            Array.Sort(a);
+            int MaxVal = a[a.Length - 1];
+            if (MaxVal % 2 == 0)
+            {
+                maxEven = true;
+            }
+            int CurrVal = 0;
+            int PreVal = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] != MaxVal)
+                {
+                    if (a[i] % 2 != 0)
+                    {
+                        CurrVal = a[i];
+                        if (PreVal != 0)
+                        {
+                            if (CurrVal > PreVal)
+                            {
+                                OddComEven = true;
+                            }
+                           
+                        }
+                    }
+                   
+                }
+                PreVal = CurrVal;
+            }
+       
+            if (maxEven == true && OddComEven == false && oddval == true)
+            {
+                return 1;
+            }
+            else return 0;
+
+        }
+        public static bool OddValueCheck(int[] a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] % 2 != 0)
+                {
+                    return true;
+
+                }
+            }
+
+            return false;
+        }

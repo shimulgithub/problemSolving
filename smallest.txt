@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+            Console.WriteLine(smallest(4));
+    }
+
+     public static int smallest(int n)
+     {
+         int i=0;
+
+         for( i=1; i<int.MaxValue; i++)
+         {
+             int contain=0;
+             int temp=0;
+             int myNum=0;
+
+             for(int j=1 ;j<=n; j++)
+             {
+                myNum=i*j;
+                temp=myNum;
+
+                while(true)
+                {
+
+                    if(temp%10==2)
+                    {
+                    contain++;
+                    break;
+                    }
+                    temp=temp/10;
+                     if (temp <= 0)
+                         break;
+                }
+
+             }
+             if(contain==n)
+             break;
+
+         }
+
+         return i;
+
+     } 
+  }

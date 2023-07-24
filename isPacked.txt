@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(isPacked(new int[] { 2, 2, 3, 3, 3 }));
+        Console.WriteLine(isPacked(new int[] { 2, 3, 2, 3, 3, 3 }));
+        Console.WriteLine(isPacked(new int[] {- 3,- 3,- 3 }));
+
+
+        }
+        public static int isPacked(int[] a)
+        {
+            Dictionary<int,int> dist=new Dictionary<int, int> ();
+            int count = 1;
+            bool Flg = true;
+       
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] < 0)
+                {
+                    return 0;
+                }
+                int consecutiveArr = isConsecutive(a[i], a);
+
+                if (consecutiveArr == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    if (i + 1 < a.Length)
+                    {
+                        if (a[i] == a[i + 1])
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            count = 0;
+                            if (a[i] != count && count != 0)
+                            {
+                                Flg = false;
+
+                            }
+                            count++;
+                        }
+
+                    }
+                    if (i == a.Length - 1)
+                    {
+                        if (a[i] != count)
+                        {
+                            Flg = false;
+
+                        }
+                    }
+                    if (!Flg)
+                    {
+                        return 0;
+                    }
+                }
+            }
+            return 1;
+        }
+        public static int isConsecutive(int n, int[] a)
+        {
+            int preIndex = 0;
+            int c = 1;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] == n)
+                {
+                    if (i != 0 && preIndex!=0)
+                    {
+                     
+                        if (i - preIndex != 1)
+                        {
+                            c = 0;
+
+                        }
+                        
+                    }
+                    preIndex = i;
+
+                }
+                
+                if (c == 0) return 0;
+
+            }
+          
+            return 1 ;
+        }
+  }

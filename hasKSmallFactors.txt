@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+       
+        Console.WriteLine(hasKSmallFactors(7,30));
+            Console.WriteLine(hasKSmallFactors(6, 14));
+            Console.WriteLine(hasKSmallFactors(6, 30));
+        }
+        public static bool hasKSmallFactors(int k, int n)
+        {
+
+            for (int i = 1; i < k; i++)
+            {
+                for (int j = 1; j < k; j++)
+                {
+                    if (i * j == n)
+                    {
+                        if (i < k && j < k)
+                        {
+                            return true;
+                        }
+                    }
+
+                }
+            }
+
+            return false;
+        }
+
+    }

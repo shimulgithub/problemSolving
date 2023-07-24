@@ -1,0 +1,91 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+            Console.WriteLine(matches(new int[] { 1, 2, 3, -5, -5, 2, 3, 18} ,new int []{ 3, -2, 3 }));
+            Console.WriteLine(matches(new int[] { 1, 2, 3, -5, -5, 2, 3, 18 },new int[] { 4, -1, 3 }));
+
+        }
+        public static int matches(int[] a, int[] p)
+        {
+                int positiveCounter = 0;
+                int negativeCounter = 0;
+                int absSum = 0;
+                List<int> list = new List<int>();
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a[i] > 0)
+                    {
+                        positiveCounter++;
+                        if (negativeCounter > 0)
+                        {
+                            list.Add(negativeCounter*-1);
+                            negativeCounter = 0;
+                        }
+
+                    }
+                    else
+                    {   
+                        negativeCounter++;
+                        if (positiveCounter > 0)
+                        {
+                            list.Add(positiveCounter);
+                            positiveCounter = 0;
+                        }
+
+                    }
+                }
+                if (negativeCounter > 0)
+                {
+                    list.Add(negativeCounter*-1);
+                    negativeCounter = 0;
+                }
+                else
+                {
+                    list.Add(positiveCounter);
+                    positiveCounter = 0;
+                }
+            int[] tempArr = list.ToArray();
+ 
+            for (int j = 0; j < p.Length; j++)
+            {
+                if (p[j] > 0)
+                {
+                    if (p[j] == tempArr[j])
+                    {
+                        absSum = absSum + p[j];
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    if (p[j] == tempArr[j])
+                    {
+                        absSum = absSum + p[j]*-1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+               
+            }
+            if (absSum == a.Length)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+}

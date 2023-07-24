@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+       
+            Console.WriteLine(isDigitSum(32121, 10));
+            Console.WriteLine(isDigitSum(32121, 9));
+        }
+        public static int isDigitSum(int n, int m)
+        {
+
+            if (n < 0) return -1;
+            int sum = 0;
+            while(n!=0)
+            {
+                int r = n % 10;
+                sum = sum + r;
+                n = n / 10;
+            }
+            if (sum < m) return 1;
+            else return 0;
+
+
+        }
+
+
+    }

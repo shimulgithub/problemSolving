@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+          
+            
+            Console.WriteLine(isMeera(new int[] { 3, 5, 2 }));
+            Console.WriteLine(isMeera(new int[] { 8, 3, 4 }));
+
+        }
+
+    public static int isMeera(int [ ] a)
+    {
+        for(int i=0; i<a.Length; i++)
+        {
+             int valueMeera=MeeraCheck(a[i]*2,a);
+
+             if(valueMeera==0) return 0;
+        }
+
+     return  1 ;
+    }
+    public  static int MeeraCheck(int n,int []a)
+    {
+       for(int i=0; i<a.Length; i++)
+       {
+           if(a[i]==n)
+           return 0;
+       }
+        return 1;
+    }
+
+
+    }

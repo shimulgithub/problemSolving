@@ -1,0 +1,41 @@
+class Solution
+{
+    static void Main(string[] args)
+    {
+       
+  Console.WriteLine(nUpCount(new int[] { 2,3, 1, -6, 8, -3, -1, 2 },5));
+  Console.WriteLine(nUpCount(new int[] { 6,3, 1}, 6));
+
+    }
+
+
+    public static int nUpCount(int [] a, int n)
+    {
+
+        int Flag=0;
+        int preSum=0;
+        int CurrSum=0;
+         int resultCout=0;
+
+        for (int i=0; i<a.Length; i++)
+        {
+            CurrSum=preSum+a[i];
+           if(preSum>CurrSum)
+           {
+               Flag=0;
+           }
+           preSum=CurrSum;
+           if(CurrSum> n  && Flag==0)
+           {
+               resultCout++;
+               Flag=1;
+
+           }
+           
+
+        }
+
+     return resultCout;
+
+    }
+}
