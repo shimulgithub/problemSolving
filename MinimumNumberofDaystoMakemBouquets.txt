@@ -1,0 +1,62 @@
+public class Solution {
+   public int MinDays(int[] a, int boq, int flowers) {
+         if (a.Length < boq * flowers) return -1;
+            int l = a[0];
+            int h = a[0];
+
+            for (int  i=0; i<a.Length; i++)
+            {
+                if (a[i]<l)
+                {
+                    l = a[i];
+                }
+                if (a[i] > h)
+                {
+                    h = a[i];
+                }
+            }
+            int res = -1;
+            while (l <= h)
+            {
+                int mid = (l + h) / 2;
+                if(isPossibleSolution(a,boq,flowers,mid)==true)
+                {
+                    res= mid;
+                    h = mid - 1;
+                }
+                else
+                {
+                    l = mid +1;
+                }
+            }
+            return res;
+        }
+        public  bool isPossibleSolution(int[]a ,int  boq,int flowers, int  mid )
+        {
+            int adj = 0;
+            int bc = 0;
+            for  (int  i=0; i<a.Length; i++)
+            {
+                if (a[i]<=mid)
+                {
+                    adj++;
+                    if(adj==flowers)
+                    {
+                        bc++;
+                        if(bc==boq)
+                        {
+                            
+                            return true;
+
+                        }
+                        adj = 0;
+                    }
+                }
+                else
+                {
+                    adj = 0;
+                }
+            }
+            return false;
+        }
+}

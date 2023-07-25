@@ -1,0 +1,16 @@
+public class Solution {
+    public int MaxVowels(string s, int k)
+    {
+          HashSet<char> setVow = new() { 'a', 'e', 'i', 'o', 'u' };
+          int count = s.Take(k).Count(c => setVow.Contains(c)), maxCount = count;
+            for (int i = k; i < s.Length; i++)
+            {
+                if (setVow.Contains(s[i])) count++;
+
+                if (setVow.Contains(s[i - k])) count--;
+
+                maxCount = Math.Max(maxCount, count);
+            }
+            return maxCount;
+    }
+}

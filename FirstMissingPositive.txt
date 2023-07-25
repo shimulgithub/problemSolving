@@ -1,0 +1,21 @@
+public class Solution {
+    public int FirstMissingPositive(int[] nums) {
+        int missingNumber = 1;
+            Array.Sort(nums);
+            for  (int  i=0; i<nums.Length;i++)
+            {
+                if (nums[i]>0)
+                {
+                    if (missingNumber == nums[i])
+                    {
+                        missingNumber++;
+                    }
+                    else if (nums[i]>missingNumber)
+                    {
+                        break;
+                    }
+                }
+            }
+            return missingNumber;
+    }
+}

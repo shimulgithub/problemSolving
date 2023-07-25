@@ -1,0 +1,20 @@
+public class Solution {
+    public string RemoveOccurrences(string s, string part) {
+        int length = part.Length;
+            while (true)
+            {
+                int index = s.IndexOf(part);
+                if (index > -1)
+                {
+                    s=s.Substring(0, index)+s.Substring(index+length);
+                    
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return s;
+    }
+}
